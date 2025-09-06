@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transformations Flashcards</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ffd1dc 0%, #f8c8dc 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .title {
+            color: #d64d7c;
+            text-align: center;
+            margin: 20px 0 40px;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
+        
+        .title h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            transform: translateY(-50px);
+            opacity: 0;
+            animation: slideDown 1s forwards 0.5s;
+        }
+        
+        .title p {
+            font-size: 1.2rem;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 1s;
+        }
+        
+        .flashcards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1300px;
+            width: 100%;
+        }
+        
+        .card {
+            height: 200px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            box-shadow: 0 8px 16px rgba(214, 77, 124, 0.2);
+            border-radius: 15px;
+        }
+        
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .card-front {
+            background: linear-gradient(45deg, #ffb6c1 0%, #ffc6d3 100%);
+            color: #d64d7c;
+            border: 2px solid #ff9db4;
+        }
+        
+        .card-front h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .card-back {
+            background: linear-gradient(45deg, #f9c5d1 0%, #ffeef3 100%);
+            color: #d64d7c;
+            transform: rotateY(180deg);
+            border: 2px solid #ff9db4;
+        }
+        
+        .card-back p {
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        
+        .hint {
+            position: absolute;
+            bottom: 10px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            color: #d64d7c;
+        }
+        
+        .icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #d64d7c;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes titlePulse {
+            0% {
+                transform: scale(1);
+                text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            }
+            50% {
+                transform: scale(1.05);
+                text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9);
+            }
+            100% {
+                transform: scale(1);
+                text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            }
+        }
+        
+        .title h1 {
+            animation: slideDown 1s forwards 0.5s, titlePulse 2s infinite 2s;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            color: #d64d7c;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .flashcards-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .title h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1>CSS Transformations Flashcards</h1>
+        <p>Hover over each card to reveal the answer</p>
+    </div>
+    
+    <div class="flashcards-container">
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="icon"><i class="fas fa-cube"></i></div>
+                    <h3>transform: preserve-3d</h3>
+                      <p>Which transformation is formatted correctly?</p>
+                    <div class="hint">Hover to reveal answer</div>
+                </div>
+                <div class="card-back">
+                    <p><strong>Answer:</strong> transform-style: preserve-3d</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3>rotate3d(1, 0, 1, 45deg)</h3>
+                      <p>What is the effect of this code?</p>
+                    <div class="hint">Hover to reveal answer</div>
+                </div>
+                <div class="card-back">
+                    <p><strong>Answer:</strong> The element will be rotated 45 degrees around the x- and z-axes.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="icon"><i class="fas fa-arrows-alt-h"></i></div>
+                    <h3>Twice as wide</h3>
+                    <p>Which transformation would make an element twice as wide?</p>
+                    <div class="hint">Hover to reveal answer</div>
+                </div>
+                <div class="card-back">
+                    <p><strong>Answer:</strong> scaleX(2)</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Card 4 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="icon"><i class="fas fa-binoculars"></i></div>
+                    <h3>Perspective effect</h3>
+                    <p>Which example will have the most extreme perspective effect?</p>
+                    <div class="hint">Hover to reveal answer</div>
+                </div>
+                <div class="card-back">
+                    <p><strong>Answer:</strong> perspective: 150px</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Card 5 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="icon"><i class="fas fa-crosshairs"></i></div>
+                    <h3>transform-origin</h3>
+                      <p>What property changes the position of transformed elements?</p>
+                    <div class="hint">Hover to reveal answer</div>
+                </div>
+                <div class="card-back">
+                    <p><strong>Answer:</strong> transform-origin</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Card 6 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="icon"><i class="fas fa-eye"></i></div>
+                    <h3>Backface visibility</h3>
+                    <p>Which property defines whether the back face of an element is visible when facing the user?</p>
+                    <div class="hint">Hover to reveal answer</div>
+                </div>
+                <div class="card-back">
+                    <p><strong>Answer:</strong> backface-visibility</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Card 7 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="icon"><i class="fas fa-arrows-alt"></i></div>
+                    <h3>Translate vs Scale</h3>
+                  <p>What's the difference between translateX(2) and scaleX(2)?</p>
+                    <div class="hint">Hover to reveal answer</div>
+                </div>
+                <div class="card-back">
+                    <p><strong>Answer:</strong> translateX moves the element, while scaleX resizes it.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Card 8 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="icon"><i class="fas fa-th"></i></div>
+                    <h3>Matrix transformation</h3>
+                    <p>What does the matrix() function do?</p>
+                    <div class="hint">Hover to reveal answer</div>
+                </div>
+                <div class="card-back">
+                    <p><strong>Answer:</strong> It combines all 2D transform methods into one using a 4x4 matrix of values.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>CSS Transformations Flashcards | Made with <i class="fas fa-heart" style="color: #d64d7c;"></i></p>
+    </div>
+
+    <script>
+        // Additional animation for cards when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = `opacity 0.5s ease-out ${index * 0.1}s, transform 0.5s ease-out ${index * 0.1}s`;
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
