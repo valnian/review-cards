@@ -183,18 +183,16 @@
 <body>
     <div class="title">
         <h1>CSS Transformations Flashcards</h1>
-        <p>Hover over each card to reveal the answer</p>
+        <p>Hover over each card to reveal their answers!<i class="fas fa-smile" style="color: #d64d7c;"></p>
     </div>
     
     <div class="flashcards-container">
-        <!-- Card 1 -->
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
                     <div class="icon"><i class="fas fa-cube"></i></div>
                     <h3>transform: preserve-3d</h3>
                       <p>Which transformation is formatted correctly?</p>
-                    <div class="hint">Hover to reveal answer</div>
                 </div>
                 <div class="card-back">
                     <p><strong>Answer:</strong> transform-style: preserve-3d</p>
@@ -202,14 +200,12 @@
             </div>
         </div>
         
-        <!-- Card 2 -->
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
                     <div class="icon"><i class="fas fa-sync-alt"></i></div>
                     <h3>rotate3d(1, 0, 1, 45deg)</h3>
                       <p>What is the effect of this code?</p>
-                    <div class="hint">Hover to reveal answer</div>
                 </div>
                 <div class="card-back">
                     <p><strong>Answer:</strong> The element will be rotated 45 degrees around the x- and z-axes.</p>
@@ -217,14 +213,12 @@
             </div>
         </div>
         
-        <!-- Card 3 -->
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
                     <div class="icon"><i class="fas fa-arrows-alt-h"></i></div>
                     <h3>Twice as wide</h3>
                     <p>Which transformation would make an element twice as wide?</p>
-                    <div class="hint">Hover to reveal answer</div>
                 </div>
                 <div class="card-back">
                     <p><strong>Answer:</strong> scaleX(2)</p>
@@ -232,14 +226,12 @@
             </div>
         </div>
         
-        <!-- Card 4 -->
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
                     <div class="icon"><i class="fas fa-binoculars"></i></div>
                     <h3>Perspective effect</h3>
                     <p>Which example will have the most extreme perspective effect?</p>
-                    <div class="hint">Hover to reveal answer</div>
                 </div>
                 <div class="card-back">
                     <p><strong>Answer:</strong> perspective: 150px</p>
@@ -247,14 +239,12 @@
             </div>
         </div>
         
-        <!-- Card 5 -->
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
                     <div class="icon"><i class="fas fa-crosshairs"></i></div>
                     <h3>transform-origin</h3>
                       <p>What property changes the position of transformed elements?</p>
-                    <div class="hint">Hover to reveal answer</div>
                 </div>
                 <div class="card-back">
                     <p><strong>Answer:</strong> transform-origin</p>
@@ -262,14 +252,12 @@
             </div>
         </div>
         
-        <!-- Card 6 -->
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
                     <div class="icon"><i class="fas fa-eye"></i></div>
                     <h3>Backface visibility</h3>
                     <p>Which property defines whether the back face of an element is visible when facing the user?</p>
-                    <div class="hint">Hover to reveal answer</div>
                 </div>
                 <div class="card-back">
                     <p><strong>Answer:</strong> backface-visibility</p>
@@ -277,14 +265,12 @@
             </div>
         </div>
         
-        <!-- Card 7 -->
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
                     <div class="icon"><i class="fas fa-arrows-alt"></i></div>
                     <h3>Translate vs Scale</h3>
                   <p>What's the difference between translateX(2) and scaleX(2)?</p>
-                    <div class="hint">Hover to reveal answer</div>
                 </div>
                 <div class="card-back">
                     <p><strong>Answer:</strong> translateX moves the element, while scaleX resizes it.</p>
@@ -292,14 +278,12 @@
             </div>
         </div>
         
-        <!-- Card 8 -->
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
                     <div class="icon"><i class="fas fa-th"></i></div>
                     <h3>Matrix transformation</h3>
                     <p>What does the matrix() function do?</p>
-                    <div class="hint">Hover to reveal answer</div>
                 </div>
                 <div class="card-back">
                     <p><strong>Answer:</strong> It combines all 2D transform methods into one using a 4x4 matrix of values.</p>
@@ -313,7 +297,6 @@
     </div>
 
     <script>
-        // Additional animation for cards when page loads
         document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.card');
             cards.forEach((card, index) => {
